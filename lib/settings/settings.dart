@@ -17,7 +17,10 @@ class Settings extends StatelessWidget {
       body: Column(
         children: [
           SearchBar(),
-          SettingsList(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: SettingsList(),
+          )
         ],
       ),
     );
