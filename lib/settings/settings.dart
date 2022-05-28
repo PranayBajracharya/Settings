@@ -14,14 +14,16 @@ class Settings extends StatelessWidget {
         title: Text("Settings"),
         backgroundColor: Colors.black,
       ),
-      body: Column(
-        children: [
-          SearchBar(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: SettingsList(),
-          )
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SearchBar(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: SettingsList(),
+            )
+          ],
+        ),
       ),
     );
   }

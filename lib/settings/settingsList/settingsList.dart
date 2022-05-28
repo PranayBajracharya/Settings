@@ -1,307 +1,97 @@
 import 'package:flutter/material.dart';
 
 class SettingsList extends StatelessWidget {
-  const SettingsList({Key? key}) : super(key: key);
+  SettingsList({Key? key}) : super(key: key);
+
+  final List<Map> settingOptions = [
+    {
+      "title": "Network & internet",
+      "subTitle": "Wi-Fi, mobile, data usage, and hotspot"
+    },
+    {"title": "Connected devices", "subTitle": "Bluetooth, Android Auto"},
+    {"title": "Apps & notitications", "subTitle": "Recent apps, default apps"},
+    {"title": "Battery", "subTitle": "100%"},
+    {"title": "Display", "subTitle": "Wallpaper, sleep, font size"},
+    {"title": "Sound", "subTitle": "Volume, vibration, Do Not Disturb"},
+    {"title": "Storage", "subTitle": "46% used - 4.33 GB free"},
+    {"title": "Privacy", "subTitle": "Permissions, account activity, personal data"},
+    {"title": "Location", "subTitle": "On - 5 apps have access to location"},
+  ];
+
+  final List iconColors = [
+    Colors.blue,
+    Colors.green,
+    Colors.orange,
+    Colors.blueAccent,
+    Colors.yellow,
+    Colors.purple,
+    Colors.amber,
+    Colors.yellowAccent,
+    Colors.greenAccent,
+    Colors.blueAccent,
+  ];
+
+  List icons = [
+    Icons.wifi,
+    Icons.devices,
+    Icons.apps_rounded,
+    Icons.battery_full,
+    Icons.brightness_6,
+    Icons.volume_up,
+    Icons.storage,
+    Icons.security,
+    Icons.location_on
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
+    return Column(children: [
+      for (int i = 0; i < settingOptions.length; i++)
+        _options(
+            iconData: icons[i],
+            iconColor: iconColors[i],
+            title: settingOptions[i]['title'],
+            subTitle: settingOptions[i]['subTitle'])
+    ]);
+  }
+
+  Widget _options(
+      {required IconData iconData,
+      required Color iconColor,
+      required String title,
+      required String subTitle}) {
+    return GestureDetector(
+      onTap: () {
+        print("You pressed " + title);
+        
+      },
+      child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(right: 15),
                 child: CircleAvatar(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: iconColor,
                   radius: 20,
-                  child: Icon(Icons.wifi),
+                  child: Icon(iconData, color: Colors.black),
                 ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Network & internet",
+                    title,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
-                  Text("Wi-Fi, mobile, data usage, and hotspot")
+                  Text(subTitle)
                 ],
               )
             ],
-          )
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 15),
-                child: CircleAvatar(
-                  backgroundColor: Colors.green,
-                  radius: 20,
-                  child: Icon(Icons.devices_other),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Connected devices",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text("Bluetooth, Android Auto")
-                ],
-              )
-            ],
-          )
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 15),
-                child: CircleAvatar(
-                  backgroundColor: Colors.orange,
-                  radius: 20,
-                  child: Icon(Icons.apps),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Apps & notitications",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text("Recent apps, default apps")
-                ],
-              )
-            ],
-          )
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 15),
-                child: CircleAvatar(
-                  backgroundColor: Colors.lightBlueAccent,
-                  radius: 20,
-                  child: Icon(Icons.battery_full),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Battery",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text("100%")
-                ],
-              )
-            ],
-          )
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 15),
-                child: CircleAvatar(
-                  backgroundColor: Colors.amber,
-                  radius: 20,
-                  child: Icon(Icons.brightness_6),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Display",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text("Wallpaper, sleep, font size")
-                ],
-              )
-            ],
-          )
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 15),
-                child: CircleAvatar(
-                  backgroundColor: Colors.lightBlue,
-                  radius: 20,
-                  child: Icon(Icons.volume_up),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Sound",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text("Volume, vibration, Do Not Disturb")
-                ],
-              )
-            ],
-          )
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 15),
-                child: CircleAvatar(
-                  backgroundColor: Colors.purple,
-                  radius: 20,
-                  child: Icon(Icons.storage),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Storage",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text("46% used - 4.33 GB free")
-                ],
-              )
-            ],
-          )
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 15),
-                child: CircleAvatar(
-                  backgroundColor: Colors.lightBlue,
-                  radius: 20,
-                  child: Icon(Icons.security),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Privacy",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text("Permissions, account activity, personal data")
-                ],
-              )
-            ],
-          )
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 15),
-                child: CircleAvatar(
-                  backgroundColor: Colors.lightGreen,
-                  radius: 20,
-                  child: Icon(Icons.location_on),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Location",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text("On - 5 apps have access to location")
-                ],
-              )
-            ],
-          )
-        ),
-      ]
+          )),
     );
   }
 }
-
-// class Option extends StatelessWidget {
-//   // const Option({Key? key, }) : super(key: key);
-//   IconData? icon = Icons.wifi;
-//   String name = "";
-
-//   Option(IconData icon, String name) {
-//     this.name = name;
-//     this.icon = icon;
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // var iconColor = color;
-//     return Row(
-//       children: [
-//         const Padding(
-//           padding: EdgeInsets.only(right: 15),
-//           child: CircleAvatar(
-//             backgroundColor: Colors.blue,
-//             radius: 20,
-//             child: Icon(icon),
-//           ),
-//         ),
-//         Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Text(
-//               // "Network & internet",
-//               name,
-//               style: TextStyle(
-//                 fontWeight: FontWeight.bold,
-//                 fontSize: 16,
-//               ),
-//             ),
-//             Text("Wi-Fi, mobile, data usage")
-//           ],
-//         )
-//       ],
-//     );
-//   }
-// }
