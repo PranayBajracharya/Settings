@@ -18,7 +18,7 @@ class Settings extends StatelessWidget {
         children: [
           SearchBar(),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: SettingsList(),
           )
         ],

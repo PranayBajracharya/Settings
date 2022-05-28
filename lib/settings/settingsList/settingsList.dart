@@ -8,7 +8,7 @@ class SettingsList extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               const Padding(
@@ -36,7 +36,7 @@ class SettingsList extends StatelessWidget {
           )
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               const Padding(
@@ -64,7 +64,7 @@ class SettingsList extends StatelessWidget {
           )
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               const Padding(
@@ -92,7 +92,7 @@ class SettingsList extends StatelessWidget {
           )
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               const Padding(
@@ -120,7 +120,7 @@ class SettingsList extends StatelessWidget {
           )
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               const Padding(
@@ -148,7 +148,7 @@ class SettingsList extends StatelessWidget {
           )
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               const Padding(
@@ -176,7 +176,7 @@ class SettingsList extends StatelessWidget {
           )
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               const Padding(
@@ -204,7 +204,7 @@ class SettingsList extends StatelessWidget {
           )
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               const Padding(
@@ -232,7 +232,7 @@ class SettingsList extends StatelessWidget {
           )
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               const Padding(
@@ -263,8 +263,6 @@ class SettingsList extends StatelessWidget {
     );
   }
 }
-
-List<Row> options = [];
 
 // class Option extends StatelessWidget {
 //   // const Option({Key? key, }) : super(key: key);
