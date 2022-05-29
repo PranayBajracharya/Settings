@@ -15,7 +15,7 @@ class SettingsApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Settings(),
       theme: ThemeData(
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyText2: TextStyle(
             color: Colors.white,
           ),

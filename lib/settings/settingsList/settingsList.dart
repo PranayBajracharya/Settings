@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:settings/settings/detailsPage/battery.dart';
+
+import '../detailsPage/apps.dart';
+import '../detailsPage/devices.dart';
+import '../detailsPage/display.dart';
+import '../detailsPage/location.dart';
+import '../detailsPage/network.dart';
+import '../detailsPage/privary.dart';
+import '../detailsPage/sound.dart';
+import '../detailsPage/storage.dart';
 
 class SettingsList extends StatefulWidget {
   SettingsList({Key? key}) : super(key: key);
@@ -39,7 +49,7 @@ class _SettingsListState extends State<SettingsList> {
     Colors.blueAccent,
   ];
 
-  List icons = [
+  final List icons = [
     Icons.wifi,
     Icons.devices,
     Icons.apps_rounded,
@@ -51,7 +61,46 @@ class _SettingsListState extends State<SettingsList> {
     Icons.location_on
   ];
 
-  
+  final List detailsPage = [
+    new Network(),
+    new Devices(),
+    new Apps(),
+    new Battery(),
+    new Display(),
+    new Sound(),
+    new Storage(),
+    new Privacy(),
+    new Location(),
+  ];
+  // final List detailsPage = [
+  //   {
+  //     "Network & internet": Network(),
+  //   },
+  //   {
+  //     "Connected devices": Network(),
+  //   },
+  //   {
+  //     "Apps & notitications": Network(),
+  //   },
+  //   {
+  //     "Battery": Network(),
+  //   },
+  //   {
+  //     "Display": Network(),
+  //   },
+  //   {
+  //     "Sound": Network(),
+  //   },
+  //   {
+  //     "Storage": Network(),
+  //   },
+  //   {
+  //     "Privacy": Network(),
+  //   },
+  //   {
+  //     "Location": Network(),
+  //   },
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +110,8 @@ class _SettingsListState extends State<SettingsList> {
             iconData: icons[i],
             iconColor: iconColors[i],
             title: settingOptions[i]['title'],
-            subTitle: settingOptions[i]['subTitle'])
+            subTitle: settingOptions[i]['subTitle'],
+            detailPage: detailsPage[i],)
     ]);
   }
 
@@ -69,17 +119,20 @@ class _SettingsListState extends State<SettingsList> {
       {required IconData iconData,
       required Color iconColor,
       required String title,
-      required String subTitle}) {
+      required String subTitle,
+      required detailPage}) {
     return GestureDetector(
       onTap: () {
-        print("You pressed " + title);
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return detailPage;
+        }));
       },
       child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               Padding(
-                padding: EdgeInsets.only(right: 15),
+                padding: const EdgeInsets.only(right: 15),
                 child: CircleAvatar(
                   backgroundColor: iconColor,
                   radius: 20,

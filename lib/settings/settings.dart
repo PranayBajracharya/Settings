@@ -11,18 +11,18 @@ class Settings extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Settings"),
+        title: const Text("Settings"),
         backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SearchBar(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: SettingsList(),
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            children: [
+              const SearchBar(),
+              SettingsList(),
+            ],
+          ),
         ),
       ),
     );
