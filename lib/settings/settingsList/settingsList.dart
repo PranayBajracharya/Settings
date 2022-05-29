@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SettingsList extends StatelessWidget {
+class SettingsList extends StatefulWidget {
   SettingsList({Key? key}) : super(key: key);
 
+  @override
+  State<SettingsList> createState() => _SettingsListState();
+}
+
+class _SettingsListState extends State<SettingsList> {
   final List<Map> settingOptions = [
     {
       "title": "Network & internet",
@@ -14,7 +19,10 @@ class SettingsList extends StatelessWidget {
     {"title": "Display", "subTitle": "Wallpaper, sleep, font size"},
     {"title": "Sound", "subTitle": "Volume, vibration, Do Not Disturb"},
     {"title": "Storage", "subTitle": "46% used - 4.33 GB free"},
-    {"title": "Privacy", "subTitle": "Permissions, account activity, personal data"},
+    {
+      "title": "Privacy",
+      "subTitle": "Permissions, account activity, personal data"
+    },
     {"title": "Location", "subTitle": "On - 5 apps have access to location"},
   ];
 
@@ -43,6 +51,8 @@ class SettingsList extends StatelessWidget {
     Icons.location_on
   ];
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -63,7 +73,6 @@ class SettingsList extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         print("You pressed " + title);
-        
       },
       child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
